@@ -1,0 +1,20 @@
+{
+    "files.associations": {
+        "exception": "cpp",
+        "ios": "cpp",
+        "istream": "cpp",
+        "ostream": "cpp",
+        "streambuf": "cpp",
+        "utility": "cpp",
+        "xiosbase": "cpp",
+        "xstring": "cpp",
+        "iostream": "cpp",
+        "initializer_list": "cpp",
+        "type_traits": "cpp",
+        "xutility": "cpp",
+        "iosfwd": "cpp",
+        "limits": "cpp",
+        "cmath": "cpp",
+        "iomanip": "cpp"
+    }
+}
