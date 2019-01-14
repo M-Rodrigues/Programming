@@ -1,9 +1,21 @@
 import java.util.ArrayList;
+import java.util.Stack;
 
 public class q10 {
     public static void main(String[] args) {
         BinaryTree tree = buildBST();
         
+        Stack<TreeNode> st = new Stack<TreeNode>();
+
+        st.add(tree.root);
+        while (!st.isEmpty()) {
+            TreeNode node = st.pop();
+
+            System.out.print(node.data + ", ");
+
+            if (node.dir != null) st.add(node.dir);
+            if (node.esq != null) st.add(node.esq);
+        }
     }
 
     public static BinaryTree buildBST() {
