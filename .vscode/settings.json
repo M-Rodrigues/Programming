@@ -16,5 +16,6 @@
         "limits": "cpp",
         "cmath": "cpp",
         "iomanip": "cpp"
-    }
+    },
+    "C_Cpp.errorSquiggles": "Disabled"
 }

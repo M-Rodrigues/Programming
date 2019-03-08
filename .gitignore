@@ -3,3 +3,7 @@ competitive-programming/.vscode/
 
 *.class
 *.out
+*in
+*out
+*.exe
+*.o
