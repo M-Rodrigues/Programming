@@ -1,9 +1,9 @@
 Books/
 competitive-programming/.vscode/
 
-*.class
-*.out
-*in
-*out
-*.exe
-*.o
+**.class
+**.out
+**in
+**.out
+**.exe
+**.o
