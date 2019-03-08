@@ -1,5 +1,15 @@
+.vscode/
+
 Books/
-competitive-programming/.vscode/
+
+Competitive Programming/.vscode/
+Competitive Programming/CodCad/
+Competitive Programming/competitions/
+Competitive Programming/cp3/
+Competitive Programming/Treinamento ufmg/
+
+interviews/
+
 
 **.class
 **.out
