@@ -24,21 +24,37 @@ const ll LINF = 0x3f3f3f3f3f3f3f3f, LMOD = 1011112131415161719ll;
 const int INF = 0x3f3f3f3f, MOD = 1e9+7;
 const int N = 2e5+5;
 
-ll n, m, coffee[N];
+int n, m, a[N];
+
+ll maxPages(int k) {
+	ll sum = 0;
+	for (int i = 0; i < n; i++) {
+		sum += max(0,a[i] - i/(k+1));
+	}
+
+	return sum;
+}
+
+int bs(int l, int r) {
+	if (l == r) return maxPages(l) >= m ? l : maxPages(l+1) >= m ? l+1 : -1;
+
+	int mid = (l+r)/2;
+	ll x = maxPages(mid);
+	
+	if (x == m) return mid;
+	if (x < m) return bs(mid+1,r);
+	return bs(l,mid-1);
+}
 
 int main() {
 	scanf("%d%d",&n,&m);
 
-	for (int i = 0; i < n; i++) cin >> coffee[i];
+	for (int i = 0; i < n; i++) scanf("%d",&a[i]);
+	
+	sort(a,a+n,greater<ll>());
 
-	sort(coffee, coffee+n, greater<int>());
-
-	for (int i = 0; i < n; i++) {
-		if (i>0) coffee[i] = coffee[i-1] + (coffee[i]-i > 0 ? coffee[i]-i : 0);
-		
-		cout << coffee[i] << " ";
-	}
-	cout << endl;
-
+	int id = bs(0,n-1);
+	
+	cout << (id == -1 ? -1 : id+1) << endl;
 	return 0;
 }
