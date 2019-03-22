@@ -100,16 +100,18 @@ vector<int> solve(string A, vector<string> &B) {
 void readInput(string &A, vector<string> &B);
 
 int main() {
-    string A; vector<string> B;
-    readInput(A,B);
+    // string A; vector<string> B;
+    // readInput(A,B);
 
-    vector<int> ans = solve(A,B);
+    // vector<int> ans = solve(A,B);
 
-    for (int x : ans)
-        cout << x << " ";
-    cout << endl;
+    // for (int x : ans)
+    //     cout << x << " ";
+    // cout << endl;
 
-    return 0;
+    // return 0;
+
+    
 }
 
 void readInput(string &A, vector<string> &B) {
