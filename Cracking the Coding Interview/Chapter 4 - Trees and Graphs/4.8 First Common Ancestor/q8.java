@@ -35,7 +35,7 @@ public class q8 {
         } else {
             return (n.data == a.data || n.data == b.data) ? n : left;
         }
-    } 
+    }
         
     public static BinaryTree buildBST() {
         ArrayList<Integer> arr = new ArrayList<Integer>();
