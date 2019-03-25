@@ -97,29 +97,52 @@ vector<int> solve(string A, vector<string> &B) {
     return ans;
 }
 
-void readInput(string &A, vector<string> &B);
+void readInput(string &A, vector<int> &B);
 
-int main() {
-    // string A; vector<string> B;
-    // readInput(A,B);
+vector<int> dp;
 
-    // vector<int> ans = solve(A,B);
-
-    // for (int x : ans)
-    //     cout << x << " ";
-    // cout << endl;
-
-    // return 0;
-
+int solve(int k, vector<int> &A) {
+    if (k >= A.size()) return INT_MAX - 1;
+    if (dp[k] != -1) return dp[k];
     
+    printf("(%d) dp[%d] = %d\n",A[k],k,dp[k]);
+    for (int i = 1; i <= A[k]; i++) {
+        int aux = solve(i+k,A);
+        if (aux == -1) aux = INT_MAX-1;
+
+        if (i == 1) {
+            dp[k] = aux + 1; continue;
+        } else {
+            dp[k] = min(dp[k], aux+1);
+        }
+    }
+    if (dp[k] == INT_MAX) dp[k] == -1;    
+    return dp[k];
 }
 
-void readInput(string &A, vector<string> &B) {
-    cin >> A;
+int jump(vector<int> &A) {
+    dp.assign(A.size(), -1);
+    dp[A.size()-1] = 0;
+    return solve(0, A);
+}
+
+
+int main() {
+    string A; vector<int> B;
+    readInput(A,B);
+
+    jump(B);
+
+    for (int k = 0; k < dp.size(); k++) 
+        printf("(%d) dp[%d] = %d\n",B[k],k,dp[k]);
+
+}
+
+void readInput(string &A, vector<int> &B) {
     int n; cin >> n;
 
     while (n--) {
-        string aux; cin >> aux;
+        int aux; cin >> aux;
         B.push_back(aux);
     }
 }
