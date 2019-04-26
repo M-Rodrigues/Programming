@@ -52,7 +52,7 @@ int find(int x) {
 
 void unite(int a, int b) {
     if ((a = find(a)) == (b = find(b))) return;
-    if (sz[a] < sz[b]) swap(a,b); // Ranking
+    if (sz[a] < sz[b]) swap(a,b); // Union by size
     pai[b] = a;
     sz[a] += sz[b];
 }
