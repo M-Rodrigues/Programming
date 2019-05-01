@@ -18,11 +18,6 @@ public:
         vector<bool> vis(N*N, false);
         dfs(src, vis);
         
-        printf("src = %d\ndest = %d\n",src,dest);
-        for (int i = 0; i < vis.size(); i++) {
-            printf("vis[%d] = %d\n",i,vis[i] ? 1 : 0);
-        }
-
         return vis[dest] ? 1 : 0;
     }
     
@@ -30,15 +25,13 @@ private:
     int src, dest, N;
     int dx[4] = {1,0,-1,0};
     int dy[4] = {0,-1,0,1};
-    vector<vector<int>> adj;
-    vector<vector<int>> tab;
+    vector<vector<int>> adj, tab;
     
     void build_graph() {
-        printf("N = %d\n",N);
         for (int i = 0; i < N; i++) {
             for (int j = 0; j < N; j++) {
                 int c = tab[i][j];
-                if (c == 0) return;
+                if (c == 0) continue;
         
                 int pos = i*N+j;
                 if (c == 1) src = pos;
@@ -46,12 +39,8 @@ private:
                 
                 for (int k = 0; k < 4; k++) {
                     int ii = i+dx[k], jj = j+dy[k];
-                    printf("(ii,jj) = (%d,%d)\n",ii,jj); 
-                    if (inside(ii,jj) and tab[ii][jj] != 0) {
+                    if (inside(ii,jj) and tab[ii][jj] != 0)
                         adj[i*N+j].push_back(ii*N+jj);
-
-                        printf("%d %d\n",pos,adj[pos][adj[pos].size()-1]);
-                    }
                 }
                 
             }
